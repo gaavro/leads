@@ -4,9 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.schema import Column
 from sqlalchemy.sql.sqltypes import ( NULLTYPE, Integer, String, DateTime)
 from dataclasses import dataclass
-from app.exceptions.exceptions import InvalidCPFError, InvalidKeyError, InvalidTypeError, InvalidUniqueKeyError, MissingOneKey, anotherKeyError
-
-
+from app.exceptions.exceptions import InvalidCPFError, InvalidKeyError, InvalidTypeError, InvalidUniqueKeyError, MissingOneKey
 
 @dataclass
 class Lead(db.Model):
@@ -23,8 +21,8 @@ class Lead(db.Model):
     name = Column(String, nullable=False)
     email = Column(String, nullable=False)
     phone = Column(String, nullable=False)
-    creation_date = Column(db.DateTime, nullable=True)
-    last_visit = Column(db.DateTime, nullable=True)   
+    creation_date =Column(db.DateTime, default=datetime.utcnow, nullable=True)
+    last_visit = Column(db.DateTime, default=datetime.utcnow, nullable=True)   
     visits= Column(Integer, nullable=True, default= 1)
 
 
