@@ -1,8 +1,8 @@
-"""Criação da tabela Lead
+"""Criação da tabela Vacina
 
-Revision ID: 19234a194bce
+Revision ID: 1950a3865168
 Revises: 
-Create Date: 2021-11-23 10:34:42.960057
+Create Date: 2021-11-23 16:50:49.759533
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '19234a194bce'
+revision = '1950a3865168'
 down_revision = None
 branch_labels = None
 depends_on = None
