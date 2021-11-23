@@ -39,7 +39,7 @@ def get_all():
 def change_visits():
     data= request.json
     
-    if list(data.keys())!= ["email"] or type(data["email"] is not str):
+    if list(data.keys())!= ["email"] or type(data["email"]) is not str:
         return{"message": "inválida"}, 400
 
     lead= Lead.query.filter(Lead.email== data["email"]).first()
@@ -62,16 +62,16 @@ def change_visits():
 def delete_user():
     data = request.json
 
-    if list(data.keys())!=["email"] or type(data["email"] is not str):
+    if list(data.keys())!=["email"] or type(data["email"]) is not str:
         return {"msg": "Requisição inválida"}, 400
 
-    specific_lead = Lead.query.filter(Lead.email==data["email"]).first()
+    lead = Lead.query.filter(Lead.email==data["email"]).first()
 
-    if specific_lead is None:
+    if lead is None:
         return {"msg": "Cadastro não encontrado"}, 404
 
 
-    current_app.db.session.delete(specific_lead)
+    current_app.db.session.delete(lead)
     current_app.db.session.commit()
 
     return "", 204
