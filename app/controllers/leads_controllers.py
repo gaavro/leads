@@ -12,7 +12,7 @@ def register_card():
         current_app.db.session.commit()
         return {            
             "name":lead.name,
-            "email": lead.name,
+            "email": lead.email,
             "phone": lead.phone,
             "creation_date": lead.creation_date,
             "last_visit": lead.last_visit,
